@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>BYU Wichí Corpus</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="static/device-mockups/device-mockups.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/new-age.css" rel="stylesheet">
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">BYU Wichí Corpus</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#history">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#sources">Sources</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="masthead">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 my-auto">
+            <div class="header-content mx-auto text-center">
+              <h1 class="mb-5">Wichí Corpus</h1>
+            </div>
+            <!-- Search form -->
+<!--   <form method="POST", action="/">
+    <div>{{ form.search_term.label }}: {{ form.search_term }}</div>
+    <div>{{ form.data_choice }}</div>
+    <div>{{ form.search_term.button }}</div>
+    <input type="submit">
+  </form> -->
+  <form id="target" method="POST", action="/">
+    <div class="col-lg-12">
+      <div class="input-group"> 
+        <input class="form-control" placeholder="Search in Wichí" aria-label="Search" id="search_term" name="search_term" type="text" value="">
+        <span class="input-group-append">
+          <button class="btn btn-default" type="submit">
+            <i class="fa fa-search text-grey" aria-hidden="true"></i>
+          </button>
+        </span>
+
+        
+      </div>
+      <input id="data_choice-0" name="data_choice" type="radio" value="concordance">
+        <label for="data_choice-0">Concordance</label>
+        <input id="data_choice-1" name="data_choice" type="radio" value="word_data">
+        <label for="data_choice-1">Word data</label>
+    </div>
+    <!-- <input type="submit"> -->
+  </form>
+
+
+<!--       <form id="target" method="POST" action="/">
+              <div class="col-lg-12">
+                <div class="input-group">
+                  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                  <span class="input-group-append">
+                    <button class="btn btn-default" type="button">
+                      <i class="fa fa-search text-grey" aria-hidden="true"></i>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </form> -->
+
+          </div>
+        </div>
+
+        <div class="container results">
+          {% if res_obj.display %}
+            {% if res_obj.concordance %}
+              <h2> {{ res_obj.term }} </h2>
+              <h4> Occurs {{ res_obj.word_freq }} times in corpus</h4>
+              <ul>
+                {% for phr, txt in res_obj.ph_txt %}
+                  <li>{{ phr }} <em>{{ txt }}</em></li>
+                {% endfor %}  
+              </ul> 
+            {% endif %}
+            {% if res_obj.word_data %}
+              <h2> {{ res_obj.term }} </h2>
+              <h4> Occurs {{ res_obj.word_freq }} times in corpus</h4>
+              <p> Wichi: {{ res_obj.wichi }} </p>
+              <p> Spanish: {{ res_obj.spanish }}</p>
+              <p> English: {{ res_obj.english }}</p>
+              <p> Part of Speech: {{ res_obj.part_of_speech }}</p>
+              <p> Source: {{ res_obj.source }}</p>
+              <p> Parse: {{ res_obj.parse }}</p>
+
+            {% endif %}
+          {% else %}
+            <!-- <p> Enter a search to begin </p> -->
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    <section class="download bg-primary text-center" id="history">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <h2 class="section-heading">History of Wichí</h2>
+            <p>Spoke by the indigeoius people of Sourth America, and the language and accompaning dialect are apart of the Matacoan language family.</p>
+            <button type="button" class="btn btn-outline-dark">Coming Soon</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="about">
+      <div class="cta-content">
+        <div class="container">
+          <h2>About Us</h2>
+          <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Coming Soon</a>
+        </div>
+      </div>
+      <div class="overlay"></div>
+    </section>
+
+    <section class="download text-center" id="sources">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <h2 class="section-heading">Our Sources</h2>
+            <p>Insert sources here</p>
+            <button type="button" class="btn btn-outline-dark">Coming Soon</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; BYU Wichí Corpus 2018. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="staticvendor/jquery/jquery.min.js"></script>
+    <script src="staticvendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="staticvendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="staticjs/new-age.min.js"></script>
+
+    <!-- TODO Build results table for Wichí corpus search -->
+    <script type="text/javascript">
+      $( "#target" ).submit(function( event ) {
+        alert( "Handler for .submit() called." );
+        event.preventDefault();
+      });
+
+      // <div class="row resultTable">
+      //       <div class="col-lg-4 my-auto">
+      //         <h3 class="mb-3">Results for <span class="font-italic" id="searchTerm"></span></h3> <!-- insert searched term -->
+      //       </div>
+      //       <div class="col-lg-8 my-auto">
+      //         <h5 class="mb-3">Frequency <span class="font-italic" id="freqTerm"></span></h5> <!-- insert frequency amount -->
+      //       </div>
+      //     </div>
+      //     <div class="row">
+      //       <div class="col-lg-12 my-auto">
+      //         <!-- Search Table -->
+      //         <div class="table-responsive-sm">
+      //           <table class="table table-hover">
+      //             <thead> <!-- TODO Make thead sticky for length of table -->
+      //               <tr>
+      //                 <th scope="col">#</th>
+      //                 <th scope="col">Context</th>
+      //                 <th scope="col">Source</th>
+      //               </tr>
+      //             </thead>
+      //             <tbody id="searchResults">
+      //              <!--  Example <tr>
+      //               <tr>
+      //                 <th scope="row">1</th>
+      //                 <td>elh ta imalhehi hap olhamel owet ta malhyejtso neche olhamel yowk oyenek pia ' . Chi iche dos hap olhamel,</td>
+      //                 <td>Parte 12 tsa-as_clean</td>
+      //               </tr> -->
+                    
+      //             </tbody>
+      //           </table>
+      //         </div>
+      //       </div>
+      //     </div>
+
+    </script>
+
+  </body>
+
+</html>
+
+
+
