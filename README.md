@@ -2,7 +2,7 @@
 *Senior capstone project*
 
 ## Group Member Responsibilities
-**Kyle**: Backend web design, datbase design, team lead
+**Kyle**: Backend web design, database design, team lead
 
 **Blake**: [Morphological Parser](https://github.com/smithnlp/wichi-parse), database design
 
